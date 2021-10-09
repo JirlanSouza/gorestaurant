@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import api from "../../services/api";
 import Food, { IFood } from "../../components/Food";
-import ModalAddFood from "../../components/ModalAddFood";
+import ModalAddFood, { FoodData } from "../../components/ModalAddFood";
 import ModalEditFood from "../../components/ModalEditFood";
 import { FoodsContainer } from "./styles";
 
@@ -23,7 +23,7 @@ const Dashboard: React.FC = (props) => {
     getFoods();
   }, []);
 
-  const handleAddFood = async (food: IFood) => {
+  const handleAddFood = async (food: FoodData) => {
     try {
       const response = await api.post("/foods", {
         ...food,
